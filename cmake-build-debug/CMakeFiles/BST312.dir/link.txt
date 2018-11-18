@@ -1,0 +1,1 @@
+/Users/aditya/Downloads/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -g -isysroot /Users/aditya/Downloads/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/BST312.dir/main.cpp.o CMakeFiles/BST312.dir/BST312.cpp.o  -o BST312 

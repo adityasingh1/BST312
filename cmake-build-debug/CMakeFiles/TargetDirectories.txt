@@ -1,0 +1,3 @@
+/Users/aditya/Desktop/BST312/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/aditya/Desktop/BST312/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/aditya/Desktop/BST312/cmake-build-debug/CMakeFiles/BST312.dir
