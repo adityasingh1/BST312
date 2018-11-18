@@ -430,27 +430,15 @@ vector<ItemType> BST_312 <ItemType>::postOrderTraversal()
 }
 
 template<class ItemType>
-bool BST_312 <ItemType>::isItemInTree(const ItemType& item)
-{
-    TreeNode *tempPtr;
-
-    tempPtr = root;
-
-    if (root == NULL) {
-        return false;
+bool BST_312 <ItemType>::isItemInTree(const ItemType& item) {
+    vector<ItemType> List = postOrderTraversal();
+    typename std::vector<ItemType>::iterator it;
+    for (it = List.begin(); it != List.end(); ++it) {
+        if (item == *it) {
+            return true;
+        }
     }
-    else if (item < root->data) {
-        root = root->left;
-        isItemInTree(item);
-    }
-    else if (item > root->data){
-        root = root->right;
-        isItemInTree(item);
-    }
-    else{
-        root = tempPtr;
-        return true;
-    }
-
+    ~List;
+    return false;
 }
 #endif
