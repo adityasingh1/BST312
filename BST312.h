@@ -290,45 +290,33 @@ bool BST_312 <ItemType>::isFull() const
 
 
 template<class ItemType>
-void BST_312 <ItemType>::insertItem(TreeNode*& t, const ItemType& newItem)
-{
+void BST_312 <ItemType>::insertItem(TreeNode*& t, const ItemType& newItem) {
 
     if (t == NULL) {
         t = new TreeNode;
         t->data = newItem;
-    }
-    else if (newItem < t->data)
+    } else if (newItem < t->data) {
         insertItem(t->left, newItem);
+        if (t->left == NULL) {
+            TreeNode *tempPtr;
+            tempPtr->data = newItem;
+            t->left = tempPtr;
+            delete tempPtr;
         }
-    else if (newItem > t->data)
+    } else if (newItem > t->data) {
         insertItem(t->right, newItem);
-    else
-        TreeNode temp = new TreeNode;
-        data = newItem;
-        deleteNode(t);
-        ItemType info;
+        if (t->right == NULL) {
+            TreeNode *tempPtr;
+            tempPtr->data = newItem;
+            t->right = tempPtr;
+            delete tempPtr;
+        }
+    } else {
         TreeNode *tempPtr;
-
-        tempPtr = t;
-
-        if (t->left == NULL)
-        {
-            t = t->right;
-            delete tempPtr;
-        }
-        else if (t->right == NULL)
-        {
-            t = t->left;
-            delete tempPtr;
-        }
-        else
-        {
-            getPredecessor(t->left, info);
-            t->data = info;
-            deleteItem(t->left, info);
-        }
+        tempPtr->data = newItem;
+        t->left = tempPtr;
+        delete tempPtr;
     }
-
 }
 
 template<class ItemType>
