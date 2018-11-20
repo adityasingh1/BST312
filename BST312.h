@@ -295,6 +295,8 @@ void BST_312 <ItemType>::insertItem(TreeNode*& t, const ItemType& newItem) {
     if (t == NULL) {
         t = new TreeNode;
         t->data = newItem;
+        t->left = NULL;
+        t->right = NULL;
     } else if (newItem < t->data) {
         insertItem(t->left, newItem);
         if (t->left == NULL) {
@@ -303,7 +305,7 @@ void BST_312 <ItemType>::insertItem(TreeNode*& t, const ItemType& newItem) {
             t->left = tempPtr;
             delete tempPtr;
         }
-    } else if (newItem > t->data) {
+    } else{
         insertItem(t->right, newItem);
         if (t->right == NULL) {
             TreeNode *tempPtr;
@@ -311,11 +313,6 @@ void BST_312 <ItemType>::insertItem(TreeNode*& t, const ItemType& newItem) {
             t->right = tempPtr;
             delete tempPtr;
         }
-    } else {
-        TreeNode *tempPtr;
-        tempPtr->data = newItem;
-        t->left = tempPtr;
-        delete tempPtr;
     }
 }
 
@@ -330,19 +327,16 @@ void BST_312 <ItemType>::insertItem(const ItemType& newItem)
 template<class ItemType>
 int BST_312 <ItemType>::countNodes(TreeNode* t) const
 {
-    if (t == NULL){
-        return 0;
+    int Nodes = 1;
+    if(t->left != NULL){
+        Nodes += countNodes(t->left);
+
     }
-    if(t->left == NULL){
-        if(t->right == NULL)
-        {
-            return 1;
-        }
+    if(t->right != NULL){
+        Nodes += countNodes(t->right);
     }
 
-    else{
-        return(countNodes(t->left) + countNodes(t->right));
-    }
+    return(Nodes);
 
 }
 
@@ -350,7 +344,14 @@ int BST_312 <ItemType>::countNodes(TreeNode* t) const
 template<class ItemType>
 int BST_312 <ItemType>::countNodes()
 {
-    return countNodes(root);
+    if (root == NULL){
+        return 0;
+    }
+
+    else{
+        return countNodes(root);
+    }
+
 }
 
 template<class ItemType>
@@ -371,7 +372,7 @@ vector<ItemType> BST_312 <ItemType>::preOrderTraversal()
 {
 
     vector<ItemType> result;
-    result = preOrderTraversal(root, result);
+    preOrderTraversal(root, result);
     return(result);
 
 }
@@ -392,7 +393,7 @@ template<class ItemType>
 vector<ItemType> BST_312 <ItemType>::inOrderTraversal()
 {
     vector<ItemType> result;
-    result = inOrderTraversal(root, result);
+    inOrderTraversal(root, result);
     return(result);
 }
 
@@ -412,9 +413,8 @@ template<class ItemType>
 vector<ItemType> BST_312 <ItemType>::postOrderTraversal()
 {
     vector<ItemType> result;
-    result = postOrderTraversal(root, result);
+    postOrderTraversal(root, result);
     return(result);
-
 }
 
 template<class ItemType>

@@ -4,5 +4,6 @@
 CMakeFiles/BST312.dir/BST312.cpp.o: ../BST312.cpp
 CMakeFiles/BST312.dir/BST312.cpp.o: ../BST312.h
 
+CMakeFiles/BST312.dir/main.cpp.o: ../BST312.h
 CMakeFiles/BST312.dir/main.cpp.o: ../main.cpp
 
