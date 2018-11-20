@@ -4,6 +4,9 @@
 
   a simple implementation of a binary search tree
 
+  Made by Aditya Singh EE312
+  aps2432
+
 
 */
 
